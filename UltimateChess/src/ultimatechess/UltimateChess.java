@@ -5,7 +5,9 @@
  */
 package ultimatechess;
 
+import byui.cit260.ultimateChess.model.Location;
 import byui.cit260.ultimateChess.model.Player;
+import java.awt.Point;
 
 /**
  *
@@ -25,6 +27,15 @@ public class UltimateChess {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        Location site = new Location();
+        
+        site.setCoordinates(new Point(3,4));
+        site.setVisited(true);
+        site.setAmountRemaining(25);
+        String siteInfo = site.toString();
+        System.out.println(siteInfo);
+        
     }
     
 }
