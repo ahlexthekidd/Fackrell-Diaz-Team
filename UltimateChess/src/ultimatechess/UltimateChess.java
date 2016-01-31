@@ -70,6 +70,6 @@ public class UltimateChess {
         String actorInfo = actor.toString();
         System.out.println(actorInfo);
         
-    }
+    } 
     
 }
