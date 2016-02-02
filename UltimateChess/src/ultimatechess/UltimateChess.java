@@ -6,11 +6,16 @@
 package ultimatechess;
 
 import byui.cit260.ultimateChess.model.Actor;
+import byui.cit260.ultimateChess.model.Game;
+import byui.cit260.ultimateChess.model.InventoryItem;
 import byui.cit260.ultimateChess.model.Location;
 import byui.cit260.ultimateChess.model.Map;
 import byui.cit260.ultimateChess.model.Player;
+import byui.cit260.ultimateChess.model.Scene;
 import byui.cit260.ultimateChess.model.Trials;
 import java.awt.Point;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -70,7 +75,31 @@ public class UltimateChess {
         String actorInfo = actor.toString();
         System.out.println(actorInfo);
         
+        //Game class
+        Game game = new Game();
         
-    } 
-    
+        game.setScore(10.00);
+        game.setTotalTime(10.00);
+        String gameInfo = game.toString();
+        System.out.println(gameInfo);
+     
+        //InventoryItem class
+        InventoryItem inventoryItem = new InventoryItem();
+        
+        inventoryItem.setStock(5);
+        inventoryItem.setInventoryType("Type of Powerup");
+        String inventoryInfo = inventoryItem.toString();
+        System.out.println(inventoryInfo);
+        
+        //Scene class
+        Scene scene = new Scene();
+        
+        scene.setDescription("scene in game");
+        scene.setBlocked(new Point(3,3));
+        scene.setType("Type of Scene");
+        String sceneInfo = scene.toString();
+        System.out.println(sceneInfo);
+        
+        
+}
 }
