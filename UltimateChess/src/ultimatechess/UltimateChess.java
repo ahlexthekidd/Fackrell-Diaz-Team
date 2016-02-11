@@ -98,8 +98,7 @@ public class UltimateChess {
         scene.setBlocked(new Point(3,3));
         scene.setType("Type of Scene");
         String sceneInfo = scene.toString();
-        System.out.println(sceneInfo);
-        
+        System.out.println(sceneInfo);        
         
 }
 }
