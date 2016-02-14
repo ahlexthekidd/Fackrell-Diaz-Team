@@ -19,14 +19,15 @@ public class Actor implements Serializable {
     private String description;
     private Point coordinates;
     private int health;
-    
-    // default constructor;
+    private int level;
+    private int attack;
+    private int defense;
 
+    // default constructor
     public Actor() {
     }
-    
+     
     // getters and setters
-
     public String getName() {
         return name;
     }
@@ -58,14 +59,41 @@ public class Actor implements Serializable {
     public void setHealth(int health) {
         this.health = health;
     }
+    
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 19 * hash + Objects.hashCode(this.name);
-        hash = 19 * hash + Objects.hashCode(this.description);
-        hash = 19 * hash + Objects.hashCode(this.coordinates);
-        hash = 19 * hash + this.health;
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + Objects.hashCode(this.description);
+        hash = 89 * hash + Objects.hashCode(this.coordinates);
+        hash = 89 * hash + this.health;
+        hash = 89 * hash + this.level;
+        hash = 89 * hash + this.attack;
+        hash = 89 * hash + this.defense;
         return hash;
     }
 
@@ -84,6 +112,15 @@ public class Actor implements Serializable {
         if (this.health != other.health) {
             return false;
         }
+        if (this.level != other.level) {
+            return false;
+        }
+        if (this.attack != other.attack) {
+            return false;
+        }
+        if (this.defense != other.defense) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -98,8 +135,9 @@ public class Actor implements Serializable {
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + ", health=" + health + '}';
+        return "Actor{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + ", health=" + health + ", level=" + level + ", attack=" + attack + ", defense=" + defense + '}';
     }
+
     
     
 }
