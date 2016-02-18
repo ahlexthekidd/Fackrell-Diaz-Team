@@ -17,7 +17,7 @@ public class InventoryItem implements Serializable{
     // class variables
     private String inventoryType;
     private int stock;
-
+    
     public InventoryItem() {
     }
     
