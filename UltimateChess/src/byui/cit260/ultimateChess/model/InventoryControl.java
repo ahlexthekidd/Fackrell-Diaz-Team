@@ -12,11 +12,5 @@ package byui.cit260.ultimateChess.model;
 public class InventoryControl {
    
    
-    //public int [] basePower = {0,26,51,77,102,128,153,179,204,230,255};
-   // public int [] pLevel = new int [99];
-    
-    
-    
-    //double powerUp = pLevel * (basePower/99);
     
 }
