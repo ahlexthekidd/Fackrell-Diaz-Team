@@ -16,7 +16,6 @@ import ultimatechess.UltimateChess;
 public class MainMenuView {
 
     private String menu;
-    private String promptMessage;
 
     public MainMenuView() {
       this.menu = "\n"
@@ -103,7 +102,7 @@ public class MainMenuView {
         
         // display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.displayGameMenu();
     }
 
     private void startExistingGame() {

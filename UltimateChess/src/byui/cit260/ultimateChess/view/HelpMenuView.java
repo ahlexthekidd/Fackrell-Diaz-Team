@@ -85,11 +85,13 @@ public class HelpMenuView {
     }
 
     private void moveHelp() {
-        System.out.println("*** stub for moveHelp() function ***");
+        System.out.println("\nIn order to move, enter a coordinate in the format of a point"
+                         + "\nFor example: in order to move to coordinate (2, 3) enter"
+                         + "the following: 2 , 3");
     }
 
     private void gameHelp() {
-        System.out.println("*** stub for gameHelp() function ***");
+        System.out.println("The objective is to traverse through the castle and rescue the Queen");
     }
     
 }
