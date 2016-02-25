@@ -26,7 +26,7 @@ public class GameMenuView {
                 + "\n-----------------------------------------"
                 + "\nF - Fight"
                 + "\nP - Use Power Up"
-                + "\nM - Run Away"
+                + "\nM - Move to Location"
                 + "\nH - Help Menu"
                 + "\nQ - Quit"
                 + "\n------------------------------------------";
