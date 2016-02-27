@@ -107,6 +107,8 @@ public class GameMenuView {
         Point coordinates = new Point();
         MapControl move = new MapControl();
         move.moveLocation(actor, coordinates);
+        coordinates.setLocation(coordinates);
+        System.out.println("Your current location: " + coordinates);
     }
 
     private void displayHelpMenu() { 

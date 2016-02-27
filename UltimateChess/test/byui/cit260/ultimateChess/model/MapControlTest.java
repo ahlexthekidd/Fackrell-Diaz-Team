@@ -25,6 +25,7 @@ public class MapControlTest {
     public void testMoveLocation() {
         
         Actor actor = new Actor();
+        Point coordinates = new Point();
         System.out.println("moveLocation");
         
         /**************
@@ -35,7 +36,6 @@ public class MapControlTest {
         // input values for test case #1
         int row = 15;
         int column = 30;
-        Point coordinates = new Point();
         coordinates.setLocation(row, column);
         
         int expResult = 0; // expected output

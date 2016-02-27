@@ -25,7 +25,7 @@ public class TrialsControlTest {
     public void testFightScene() {
         Actor hero = new Actor();
         Actor enemy = new Actor();
-        System.out.println("moveLocation");
+        System.out.println("fightScene");
         
         /**************
          * TEST CASE #1
