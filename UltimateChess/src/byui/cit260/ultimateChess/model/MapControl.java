@@ -27,16 +27,15 @@ public class MapControl {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter a row:");
         row = input.nextInt();
-        System.out.println("Please enter a column:");
-        column = input.nextInt();
-        
-        // error checking for row
         if (row < 0 || row > 36) {
             System.out.println("You have entered an invalid row");
             System.out.println("Please enter a row:");
             row = input.nextInt();
         }
-        else if (column < 0 || column > 36) {
+        
+        System.out.println("Please enter a column:");
+        column = input.nextInt();
+        if (column < 0 || column > 36) {
             System.out.println("You have entered an invalid column");
             System.out.println("Please enter a column:");
             column = input.nextInt();
