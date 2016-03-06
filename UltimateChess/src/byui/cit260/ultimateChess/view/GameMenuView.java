@@ -57,7 +57,8 @@ public class GameMenuView extends View {
     }
 
     private void fight() {
-        System.out.println("*** fight function called ***");
+       FightView fight = new FightView();
+       fight.display();
     }
 
     private void powerUp() {
