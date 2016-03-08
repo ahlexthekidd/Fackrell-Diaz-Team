@@ -25,6 +25,7 @@ public class GameMenuView extends View {
                 + "\nF - Fight"
                 + "\nP - Use Power Up"
                 + "\nM - Move to Location"
+                + "\nC - Castle Menu"
                 + "\nH - Help Menu"
                 + "\nQ - Quit"
                 + "\n------------------------------------------");
@@ -36,16 +37,19 @@ public class GameMenuView extends View {
         choice = choice.toUpperCase(); // convert choice to upper case
 
         switch (choice) {
-            case "F": // create and start a new game
+            case "F": // Fight
                 this.fight();
                 break;
-            case "P": // get and start an existing game
+            case "P": // powerUp
                 this.powerUp();
                 break;
-            case "M": // display the help menu
+            case "M": // move to location
                 this.moveLocation();
                 break;
-            case "H": // save the current game
+            case "C": // Castle menu
+                this.CastleView();
+                break;
+            case "H": // help menu
                 this.displayHelpMenu();
                 break;
             default:
@@ -74,6 +78,10 @@ public class GameMenuView extends View {
         System.out.println("Your current location: " + coordinates);
     }
 
+    private void CastleView() { 
+    CastleView castleView = new CastleView();
+    castleView.display();
+    }
     private void displayHelpMenu() { 
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
