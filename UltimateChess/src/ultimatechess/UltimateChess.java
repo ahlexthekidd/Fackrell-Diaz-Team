@@ -5,18 +5,9 @@
  */
 package ultimatechess;
 
-import byui.cit260.ultimateChess.model.Actor;
 import byui.cit260.ultimateChess.model.Game;
-import byui.cit260.ultimateChess.model.InventoryItem;
-import byui.cit260.ultimateChess.model.Location;
-import byui.cit260.ultimateChess.model.Map;
 import byui.cit260.ultimateChess.model.Player;
-import byui.cit260.ultimateChess.model.Scene;
-import byui.cit260.ultimateChess.model.Trials;
 import byui.cit260.ultimateChess.view.StartProgramView;
-import java.awt.Point;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  *
