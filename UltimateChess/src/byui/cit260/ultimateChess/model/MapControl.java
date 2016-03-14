@@ -7,6 +7,7 @@ package byui.cit260.ultimateChess.model;
 
 import java.awt.Point;
 import java.util.Scanner;
+import ultimatechess.UltimateChess;
 
 /**
  *
@@ -14,6 +15,92 @@ import java.util.Scanner;
  */
 public class MapControl {
 
+    static Map createMap() {
+        // create the map
+        Map map = new Map(20, 20);
+        
+        // create a list of the different scenes in the game
+        Scene[] scenes = createScenes();
+        
+        // assign the different scenes to locations in the map
+        assignScenesToLocations(map, scenes);
+        
+        return map;
+    }
+
+    static void moveActorsToStartingLocation(Map map) {
+        System.out.println("*** called moveActorsToStartingLocation() in MapConrtorl ***");
+    }
+
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Location[][] locations = map.getLocations();
+        
+        //start point
+        locations[0][0].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[0][1].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.fightScene.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.puzzleScene.ordinal()]);
+        locations[0][5].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[0][6].setScene(scenes[SceneType.fightScene.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.fightScene.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.puzzleScene.ordinal()]);
+        locations[1][5].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[1][6].setScene(scenes[SceneType.fightScene.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.fightScene.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.puzzleScene.ordinal()]);
+        locations[2][5].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[2][6].setScene(scenes[SceneType.fightScene.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.fightScene.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.puzzleScene.ordinal()]);
+        locations[3][5].setScene(scenes[SceneType.safeScene.ordinal()]);
+        locations[3][6].setScene(scenes[SceneType.fightScene.ordinal()]);
+
+    }
+
+    private static Scene[] createScenes() {
+        Game game = UltimateChess.getCurrentGame();
+        Scene[] scenes = new Scene[SceneType.values().length];
+       
+        Scene fightScene = new Scene();
+        fightScene.setDescription("\nThis is a fight scene. In order to move on"
+                                + "to the next location you must defeat your enemy.");
+        fightScene.setType(" Fight ");
+        fightScene.setBlocked(false);
+        scenes[SceneType.fightScene.ordinal()] = fightScene;
+       
+        Scene puzzleScene = new Scene();
+        puzzleScene.setDescription("\nThis is a puzzle scene. In order to move on"
+                                + "to the next location you must figure out this puzzle.");
+        puzzleScene.setType(" Puzzle ");
+        puzzleScene.setBlocked(false);
+        scenes[SceneType.puzzleScene.ordinal()] = puzzleScene;
+        
+        Scene safeScene = new Scene();
+        safeScene.setDescription("\nThis is a safe scene. This is an intermediate scene."
+                                + "This is a place to relax and not worry about anything else");
+        safeScene.setType(" Safe ");
+        safeScene.setBlocked(false);
+        scenes[SceneType.safeScene.ordinal()] = safeScene;
+        
+        return scenes;
+    }
+
+    public enum SceneType {
+        fightScene,
+        puzzleScene,
+        safeScene;
+    }
+    
     // determines where to move
     public int moveLocation(Actor actor, Point coordinates) {
 

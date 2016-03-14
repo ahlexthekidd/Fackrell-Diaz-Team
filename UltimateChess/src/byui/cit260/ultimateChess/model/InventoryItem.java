@@ -20,8 +20,6 @@ public class InventoryItem implements Serializable{
     
     public InventoryItem() {
     }
-    
-    
 
     public String getInventoryType() {
         return inventoryType;
@@ -72,8 +70,4 @@ public class InventoryItem implements Serializable{
     public String toString() {
         return "InventoryItem{" + "inventoryType=" + inventoryType + ", stock=" + stock + '}';
     }
-    
-    
-    
-    
 }

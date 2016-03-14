@@ -13,17 +13,15 @@ import java.util.Objects;
  *
  * @author mfackrell1
  */
-public class Scene implements Serializable{
-    
+public class Scene implements Serializable {
+
     private String description;
-    private Point blocked;
+    private boolean blocked;
     private String type;
 
     public Scene() {
     }
 
-    
-    
     public String getDescription() {
         return description;
     }
@@ -32,11 +30,11 @@ public class Scene implements Serializable{
         this.description = description;
     }
 
-    public Point getBlocked() {
+    public boolean isBlocked() {
         return blocked;
     }
 
-    public void setBlocked(Point blocked) {
+    public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
 
@@ -85,7 +83,4 @@ public class Scene implements Serializable{
     public String toString() {
         return "Scene{" + "description=" + description + ", blocked=" + blocked + ", type=" + type + '}';
     }
-    
-    
-    
 }

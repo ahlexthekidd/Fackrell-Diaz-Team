@@ -23,6 +23,10 @@ public class Trials implements Serializable{
     
     // default constructor
     public Trials() {
+        this.description = "\nThis is a trial. You will be have to pass "
+                         + "this trial in order to move on";
+        this.coordinates = new Point(0,0);
+        this.amountRemaining = 1000;   
     }
     
     // getters and setters

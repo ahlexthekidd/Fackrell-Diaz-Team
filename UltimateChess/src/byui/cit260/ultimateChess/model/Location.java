@@ -7,6 +7,7 @@ package byui.cit260.ultimateChess.model;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -19,18 +20,61 @@ public class Location implements Serializable {
     private Point coordinates;
     private boolean visited;
     private int amountRemaining;
+    private Scene scene;
+    private ArrayList<Actor> actors;
+    int row;
+    int column;
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+    
 
     // default constructor
     public Location() {
     }
+    
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
 
     // getter and setters
+    public void setActors(ArrayList<Actor> actors) {    
+        this.actors = actors;
+    }
+
     public Point getCoordinates() {
         return coordinates;
     }
 
     public void setCoordinates(Point coordinates) {
         this.coordinates = coordinates;
+        double x = coordinates.getX();
+        double y = coordinates.getY();
+
+        this.row = (int)x;
+        this.column = (int)y;
+        coordinates.setLocation(new Point(row, column));
     }
 
     public boolean isVisited() {

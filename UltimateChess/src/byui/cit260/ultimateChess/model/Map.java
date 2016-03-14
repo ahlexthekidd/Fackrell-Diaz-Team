@@ -5,6 +5,7 @@
  */
 package byui.cit260.ultimateChess.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 
 /**
@@ -16,12 +17,48 @@ public class Map implements Serializable{
     // class instance and variables
     private int rowCount;
     private int columnCount;
+    private Location[][] locations;
     
     // default constructor
     public Map() {
     }
+
+    Map(int rowCount, int columnCount) {
+        if (rowCount < 1 || columnCount < 1) {
+            System.out.println("The number of rows and columns must be > zero");
+            return;
+        }
+        
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        
+        // create 2-D array for Location objects
+        this.locations = new Location[rowCount][columnCount];
+        
+        for (int row = 0; row < rowCount; row++) {
+            for (int column = 0; column < columnCount; column++) {
+                // create and initialize new Location object instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                // assign the location object to the current position in array
+                locations[row][column] = location;
+            }
+            
+        }
+    }
     
+    public Location[][] getLocations() {
+        return locations;
+    }
+
     // getters and setters
+    public void setLocations(Location[][] locations) {    
+        this.locations = locations;
+    }
+
     public int getRowCount() {
         return rowCount;
     }

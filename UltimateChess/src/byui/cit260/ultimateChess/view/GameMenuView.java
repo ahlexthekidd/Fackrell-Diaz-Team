@@ -6,10 +6,14 @@
 package byui.cit260.ultimateChess.view;
 
 import byui.cit260.ultimateChess.model.Actor;
+import byui.cit260.ultimateChess.model.Game;
+import byui.cit260.ultimateChess.model.GameControl;
+import byui.cit260.ultimateChess.model.InventoryItem;
+import byui.cit260.ultimateChess.model.Location;
 import byui.cit260.ultimateChess.model.MapControl;
 import java.awt.Point;
 import java.util.Scanner;
-
+import ultimatechess.UltimateChess;
 
 /**
  *
@@ -23,7 +27,7 @@ public class GameMenuView extends View {
                 + "\n| Game Menu                             |"
                 + "\n-----------------------------------------"
                 + "\nF - Fight"
-                + "\nP - Use Power Up"
+                + "\nI - displayInventory"
                 + "\nM - Move to Location"
                 + "\nH - Help Menu"
                 + "\nQ - Quit"
@@ -36,11 +40,14 @@ public class GameMenuView extends View {
         choice = choice.toUpperCase(); // convert choice to upper case
 
         switch (choice) {
+            case "V": // display map
+                this.displayMap();
+                break;
             case "F": // create and start a new game
                 this.fight();
                 break;
-            case "P": // get and start an existing game
-                this.powerUp();
+            case "I": // get and start an existing game
+                this.displayInventory();
                 break;
             case "M": // display the help menu
                 this.moveLocation();
@@ -57,26 +64,45 @@ public class GameMenuView extends View {
     }
 
     private void fight() {
-       FightView fight = new FightView();
-       fight.display();
+        FightView fight = new FightView();
+        fight.display();
     }
 
-    private void powerUp() {
-        System.out.println("*** powerUp function called ***");
+    private void displayInventory() {
+        // get the sorted list of inventory items for the current game
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+
+        System.out.println("\nList of INventory Items");
+        System.out.println("Description" + "\t"
+                + "Required" + "\t"
+                + "In Stock");
+
+        // for each inventory item
+        for (InventoryItem inventoryItem : inventory) {
+            // Display the description and the amount in stock
+            System.out.println(inventoryItem.getInventoryType() + "\t   "
+                    + inventoryItem.getStock());
+        }
     }
 
     private void moveLocation() {
-        Actor actor = new Actor();
-        Point coordinates = new Point();
-        MapControl move = new MapControl();
-        move.moveLocation(actor, coordinates);
-        coordinates.setLocation(coordinates);
-        System.out.println("Your current location: " + coordinates);
+        System.out.println("*** moveLocation function called ***");
+
+        //Actor actor = new Actor();
+        //Point coordinates = new Point();
+        //MapControl move = new MapControl();
+        //move.moveLocation(actor, coordinates);
+        //coordinates.setLocation(coordinates);
+        //System.out.println("Your current location: " + coordinates);
     }
 
-    private void displayHelpMenu() { 
+    private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
     }
-}
 
+    private void displayMap() {
+        Game locations = UltimateChess.getCurrentGame();
+
+    }
+}

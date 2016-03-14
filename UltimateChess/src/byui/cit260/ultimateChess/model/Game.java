@@ -17,6 +17,12 @@ public class Game implements Serializable {
     private double score;
     private double totalTime;
     
+    private Trials trials;
+    private InventoryItem[] inventory;
+    private Player player;
+    private String[] actors;
+    private Map map;
+    
     public Game() {
     }
 
@@ -35,6 +41,47 @@ public class Game implements Serializable {
     public void setTotalTime(double totalTime) {
         this.totalTime = totalTime;
     }
+
+    public Trials getTrials() {
+        return trials;
+    }
+
+    public void setTrials(Trials trials) {
+        this.trials = trials;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public String[] getActors() {
+        return actors;
+    }
+
+    public void setActors(String[] actors) {
+        this.actors = actors;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
     
     @Override
     public int hashCode() {
