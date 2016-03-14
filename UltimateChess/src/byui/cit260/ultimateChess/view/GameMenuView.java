@@ -5,14 +5,9 @@
  */
 package byui.cit260.ultimateChess.view;
 
-import byui.cit260.ultimateChess.model.Actor;
 import byui.cit260.ultimateChess.model.Game;
 import byui.cit260.ultimateChess.model.GameControl;
 import byui.cit260.ultimateChess.model.InventoryItem;
-import byui.cit260.ultimateChess.model.Location;
-import byui.cit260.ultimateChess.model.MapControl;
-import java.awt.Point;
-import java.util.Scanner;
 import ultimatechess.UltimateChess;
 
 /**
@@ -29,6 +24,7 @@ public class GameMenuView extends View {
                 + "\nF - Fight"
                 + "\nI - displayInventory"
                 + "\nM - Move to Location"
+                + "\nC - Castle Menu"
                 + "\nH - Help Menu"
                 + "\nQ - Quit"
                 + "\n------------------------------------------");
@@ -49,10 +45,13 @@ public class GameMenuView extends View {
             case "I": // get and start an existing game
                 this.displayInventory();
                 break;
-            case "M": // display the help menu
+            case "M": // move to location
                 this.moveLocation();
                 break;
-            case "H": // save the current game
+            case "C": // Castle menu
+                this.CastleView();
+                break;
+            case "H": // help menu
                 this.displayHelpMenu();
                 break;
             default:
@@ -94,6 +93,11 @@ public class GameMenuView extends View {
         //move.moveLocation(actor, coordinates);
         //coordinates.setLocation(coordinates);
         //System.out.println("Your current location: " + coordinates);
+    }
+
+    private void CastleView() {
+        CastleView castleView = new CastleView();
+        castleView.display();
     }
 
     private void displayHelpMenu() {
