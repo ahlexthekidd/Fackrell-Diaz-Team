@@ -17,7 +17,7 @@ public class MapControl {
 
     static Map createMap() {
         // create the map
-        Map map = new Map(20, 20);
+        Map map = new Map(7, 7);
         
         // create a list of the different scenes in the game
         Scene[] scenes = createScenes();

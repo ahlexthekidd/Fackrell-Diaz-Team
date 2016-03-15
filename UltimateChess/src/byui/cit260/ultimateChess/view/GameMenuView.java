@@ -8,6 +8,7 @@ package byui.cit260.ultimateChess.view;
 import byui.cit260.ultimateChess.model.Game;
 import byui.cit260.ultimateChess.model.GameControl;
 import byui.cit260.ultimateChess.model.InventoryItem;
+import byui.cit260.ultimateChess.model.Map;
 import ultimatechess.UltimateChess;
 
 /**
@@ -22,7 +23,8 @@ public class GameMenuView extends View {
                 + "\n| Game Menu                             |"
                 + "\n-----------------------------------------"
                 + "\nF - Fight"
-                + "\nI - displayInventory"
+                + "\nV - Display the Map"
+                + "\nI - Display The Inventory"
                 + "\nM - Move to Location"
                 + "\nC - Castle Menu"
                 + "\nH - Help Menu"
@@ -107,6 +109,23 @@ public class GameMenuView extends View {
 
     private void displayMap() {
         Game locations = UltimateChess.getCurrentGame();
+        Map map = locations.getMap();
+        
+        int rowCount = map.getRowCount();
+        int columnCount = map.getColumnCount();
+        
+        System.out.println("\n\tThe Chess Board");
+        System.out.print("  \t| 0 |   | 1 |   | 2 |   | 3 |   | 4 |   | 5 |   | 6 |"
+                       + "\n\t-----------------------------------------------------");
+        for (int row = 0; row < rowCount; row++) {
+            System.out.print("\n  | " + row + " |");
+            for (int column = 0; column < columnCount; column++) {
+                if (row == column) {
+                    System.out.print("\n\t-----------------------------------------------------");
+                }
+                
+            }
+        }
 
     }
 }
