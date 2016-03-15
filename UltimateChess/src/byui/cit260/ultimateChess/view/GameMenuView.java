@@ -8,6 +8,7 @@ package byui.cit260.ultimateChess.view;
 import byui.cit260.ultimateChess.model.Game;
 import byui.cit260.ultimateChess.model.GameControl;
 import byui.cit260.ultimateChess.model.InventoryItem;
+import byui.cit260.ultimateChess.model.Location;
 import byui.cit260.ultimateChess.model.Map;
 import ultimatechess.UltimateChess;
 
@@ -110,21 +111,28 @@ public class GameMenuView extends View {
     private void displayMap() {
         Game locations = UltimateChess.getCurrentGame();
         Map map = locations.getMap();
-        
+
         int rowCount = map.getRowCount();
         int columnCount = map.getColumnCount();
-        
-        System.out.println("\n\tThe Chess Board");
-        System.out.print("  \t| 0 |   | 1 |   | 2 |   | 3 |   | 4 |   | 5 |   | 6 |"
-                       + "\n\t-----------------------------------------------------");
+
+        System.out.println("\n\n\t\t-----------------------------------------"
+                + "\n\t\t|            The Kingdom                |"
+                + "\n\t\t-----------------------------------------");
+        System.out.print("\n\t| 0 |   | 1 |   | 2 |   | 3 |   | 4 |   | 5 |   | 6 |\n\n");
+
         for (int row = 0; row < rowCount; row++) {
-            System.out.print("\n  | " + row + " |");
+            System.out.print("\t-----------------------------------------------------\n");
             for (int column = 0; column < columnCount; column++) {
-                if (row == column) {
-                    System.out.print("\n\t-----------------------------------------------------");
+                System.out.print("| " + row + " |" + "\t|   |   |   |   |   |   |   |   |   |   |   |   |   |\n");
+                Location location[][] = map.getLocations();
+                if (false) {
+
+                } else {
+                    
                 }
-                
+                break;
             }
+
         }
 
     }
