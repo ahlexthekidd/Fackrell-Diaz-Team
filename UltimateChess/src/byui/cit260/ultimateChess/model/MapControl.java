@@ -68,27 +68,26 @@ public class MapControl {
     }
 
     private static Scene[] createScenes() {
-        Game game = UltimateChess.getCurrentGame();
         Scene[] scenes = new Scene[SceneType.values().length];
        
         Scene fightScene = new Scene();
         fightScene.setDescription("\nThis is a fight scene. In order to move on"
                                 + "to the next location you must defeat your enemy.");
-        fightScene.setType(" Fight ");
+        fightScene.setType("FT");
         fightScene.setBlocked(false);
         scenes[SceneType.fightScene.ordinal()] = fightScene;
        
         Scene puzzleScene = new Scene();
         puzzleScene.setDescription("\nThis is a puzzle scene. In order to move on"
                                 + "to the next location you must figure out this puzzle.");
-        puzzleScene.setType(" Puzzle ");
+        puzzleScene.setType("PZ");
         puzzleScene.setBlocked(false);
         scenes[SceneType.puzzleScene.ordinal()] = puzzleScene;
         
         Scene safeScene = new Scene();
         safeScene.setDescription("\nThis is a safe scene. This is an intermediate scene."
                                 + "This is a place to relax and not worry about anything else");
-        safeScene.setType(" Safe ");
+        safeScene.setType("SF");
         safeScene.setBlocked(false);
         scenes[SceneType.safeScene.ordinal()] = safeScene;
         

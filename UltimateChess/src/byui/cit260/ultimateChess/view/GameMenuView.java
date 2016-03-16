@@ -5,11 +5,15 @@
  */
 package byui.cit260.ultimateChess.view;
 
+import byui.cit260.ultimateChess.model.Actor;
+import static byui.cit260.ultimateChess.model.Actor.Pawn;
 import byui.cit260.ultimateChess.model.Game;
 import byui.cit260.ultimateChess.model.GameControl;
 import byui.cit260.ultimateChess.model.InventoryItem;
 import byui.cit260.ultimateChess.model.Location;
 import byui.cit260.ultimateChess.model.Map;
+import byui.cit260.ultimateChess.model.MapControl;
+import java.awt.Point;
 import ultimatechess.UltimateChess;
 
 /**
@@ -88,14 +92,12 @@ public class GameMenuView extends View {
     }
 
     private void moveLocation() {
-        System.out.println("*** moveLocation function called ***");
-
-        //Actor actor = new Actor();
-        //Point coordinates = new Point();
-        //MapControl move = new MapControl();
-        //move.moveLocation(actor, coordinates);
-        //coordinates.setLocation(coordinates);
-        //System.out.println("Your current location: " + coordinates);
+        //System.out.println("*** moveLocation function called ***");
+        Point coordinates = new Point();
+        MapControl move = new MapControl();
+        move.moveLocation(Pawn, coordinates);
+        coordinates.setLocation(coordinates);
+        System.out.println("Your current location: " + coordinates);
     }
 
     private void CastleView() {
@@ -111,6 +113,7 @@ public class GameMenuView extends View {
     private void displayMap() {
         Game locations = UltimateChess.getCurrentGame();
         Map map = locations.getMap();
+        Location places[][] = map.getLocations();
 
         int rowCount = map.getRowCount();
         int columnCount = map.getColumnCount();
@@ -118,22 +121,21 @@ public class GameMenuView extends View {
         System.out.println("\n\n\t\t-----------------------------------------"
                 + "\n\t\t|            The Kingdom                |"
                 + "\n\t\t-----------------------------------------");
-        System.out.print("\n\t| 0 |   | 1 |   | 2 |   | 3 |   | 4 |   | 5 |   | 6 |\n\n");
+        System.out.print("\n\t| 0  |  | 1  |  | 2  |  | 3  |  | 4  |  | 5  |  | 6  |\n");
 
         for (int row = 0; row < rowCount; row++) {
-            System.out.print("\t-----------------------------------------------------\n");
+            System.out.print("\n\t-----------------------------------------------------\n");
+            System.out.print("| " + row + " |");
             for (int column = 0; column < columnCount; column++) {
-                System.out.print("| " + row + " |" + "\t|   |   |   |   |   |   |   |   |   |   |   |   |   |\n");
-                Location location[][] = map.getLocations();
-                if (false) {
-
+                Location place = places[row][column];
+                if (place.isVisited()) {
+                    System.out.print(" | " + place.getScene().getType());
                 } else {
-                    
+                    System.out.print("\t| ??");
                 }
-                break;
+                System.out.print(" | ");
             }
-
         }
-
+        System.out.print("\n\t-----------------------------------------------------\n");
     }
 }
