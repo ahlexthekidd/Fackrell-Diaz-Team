@@ -13,7 +13,10 @@ import byui.cit260.ultimateChess.model.InventoryItem;
 import byui.cit260.ultimateChess.model.Location;
 import byui.cit260.ultimateChess.model.Map;
 import byui.cit260.ultimateChess.model.MapControl;
+import citbyui.cit260.ultimatechess.exceptions.MapControlException;
 import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ultimatechess.UltimateChess;
 
 /**
@@ -52,9 +55,15 @@ public class GameMenuView extends View {
             case "I": // get and start an existing game
                 this.displayInventory();
                 break;
-            case "M": // move to location
-                this.moveLocation();
-                break;
+            case "M": {
+                try {
+                    // move to location
+                    this.moveLocation();
+                } catch (MapControlException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+            break;
             case "C": // Castle menu
                 this.CastleView();
                 break;
@@ -91,7 +100,7 @@ public class GameMenuView extends View {
         }
     }
 
-    private void moveLocation() {
+    private void moveLocation() throws MapControlException {
         //System.out.println("*** moveLocation function called ***");
         Point coordinates = new Point();
         MapControl move = new MapControl();

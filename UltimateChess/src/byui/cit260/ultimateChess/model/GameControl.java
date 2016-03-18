@@ -5,6 +5,7 @@
  */
 package byui.cit260.ultimateChess.model;
 
+import citbyui.cit260.ultimatechess.exceptions.MapControlException;
 import ultimatechess.UltimateChess;
 
 /**
@@ -13,7 +14,7 @@ import ultimatechess.UltimateChess;
  */
 public class GameControl {
     
-    public static void createNewGame(Player player) { 
+    public static void createNewGame(Player player) throws MapControlException { 
         Game game = new Game(); // create new game
         UltimateChess.setCurrentGame(game); // save UltimateChess
         

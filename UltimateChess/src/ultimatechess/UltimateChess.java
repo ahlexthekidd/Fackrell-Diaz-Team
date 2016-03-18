@@ -15,8 +15,24 @@ import byui.cit260.ultimateChess.view.StartProgramView;
  */
 public class UltimateChess {
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        //start program view
+        StartProgramView startProgramView = new StartProgramView();
+        try {
+            startProgramView.displayStartProgramView();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.displayStartProgramView();
+        }
+    }
+
     private static Game currentGame = null;
-    private static Player player = null; 
+    private static Player player = null;
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -33,15 +49,4 @@ public class UltimateChess {
     public static void setPlayer(Player player) {
         UltimateChess.player = player;
     }
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        //start program view
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
-        
-}
 }

@@ -6,7 +6,9 @@
 package byui.cit260.ultimateChess.view;
 
 import byui.cit260.ultimateChess.model.GameControl;
-import java.util.Scanner;
+import citbyui.cit260.ultimatechess.exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ultimatechess.UltimateChess;
 
 /**
@@ -36,8 +38,14 @@ public class MainMenuView extends View{
         value = value.toUpperCase(); // convert choice to upper case
 
         switch (value) {
-            case "N": // create and start a new game
+            case "N": {
+            try {
+                // create and start a new game
                 this.startNewGame();
+            } catch (MapControlException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
                 break;
             case "L": // get and start an existing game
                 this.startExistingGame();
@@ -56,7 +64,7 @@ public class MainMenuView extends View{
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlException {
         GameControl.createNewGame(UltimateChess.getPlayer());
         
         // display the game menu
