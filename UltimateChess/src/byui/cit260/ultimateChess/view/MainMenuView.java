@@ -6,9 +6,8 @@
 package byui.cit260.ultimateChess.view;
 
 import byui.cit260.ultimateChess.model.GameControl;
+import citbyui.cit260.ultimatechess.exceptions.GameControlException;
 import citbyui.cit260.ultimatechess.exceptions.MapControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import ultimatechess.UltimateChess;
 
 /**
@@ -60,7 +59,6 @@ public class MainMenuView extends View {
                 this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
-
         return false;
     }
 
@@ -76,9 +74,9 @@ public class MainMenuView extends View {
         // prompt for and get the name of the file where the game is saved
         this.console.println("\n\nEnter the file path for the file where the game "
                 + "is to be saved.");
-        
+
         String filePath = this.getInput();
-        
+
         try {
             // start a saved game
             GameControl.loadGame(filePath);

@@ -12,6 +12,7 @@ import byui.cit260.ultimateChess.model.InventoryItem;
 import byui.cit260.ultimateChess.model.Location;
 import byui.cit260.ultimateChess.model.Map;
 import byui.cit260.ultimateChess.model.MapControl;
+import citbyui.cit260.ultimatechess.exceptions.GameControlException;
 import citbyui.cit260.ultimatechess.exceptions.MapControlException;
 import java.awt.Point;
 import ultimatechess.UltimateChess;
@@ -33,6 +34,7 @@ public class GameMenuView extends View {
                 + "\nM - Move to Location"
                 + "\nC - Castle Menu"
                 + "\nH - Help Menu"
+                + "\nP - Print Menu"
                 + "\nQ - Quit"
                 + "\n------------------------------------------");
     }
@@ -46,7 +48,8 @@ public class GameMenuView extends View {
             case "V": // display map
                 this.displayMap();
                 break;
-            case "F": this.fight();
+            case "F":
+                this.fight();
                 break;
             case "I": // get and start an existing game
                 this.displayInventory();
@@ -66,10 +69,18 @@ public class GameMenuView extends View {
             case "H": // help menu
                 this.displayHelpMenu();
                 break;
+            case "P": // print menu
+                try {
+                    this.print();
+                } catch (GameControlException ex) {
+                    this.console.println(ex.getMessage());
+                }
+                break;
             default:
                 this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
+
         return false;
 
     }
@@ -141,5 +152,11 @@ public class GameMenuView extends View {
             }
         }
         this.console.print("\n\t-----------------------------------------------------\n");
+    }
+
+    private void print() throws GameControlException {
+        // display the game menu
+        PrintMenuView printMenu = new PrintMenuView();
+        printMenu.display();
     }
 }
