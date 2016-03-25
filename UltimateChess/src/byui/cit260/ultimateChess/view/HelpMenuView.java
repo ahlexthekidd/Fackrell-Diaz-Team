@@ -37,7 +37,7 @@ public class HelpMenuView extends View{
                 this.moveHelp();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
 
@@ -45,13 +45,13 @@ public class HelpMenuView extends View{
     }
 
     private void moveHelp() {
-        System.out.println("\nIn order to move, enter a coordinate in the format of a point"
+        this.console.println("\nIn order to move, enter a coordinate in the format of a point"
                          + "\nFor example: in order to move to coordinate (2, 3) enter"
                          + "the following: 2 , 3");
     }
 
     private void gameHelp() {
-        System.out.println("The objective is to traverse through the castle and rescue the Queen");
+        this.console.println("The objective is to traverse through the castle and rescue the Queen");
     }
     
 }

@@ -5,7 +5,12 @@
  */
 package byui.cit260.ultimateChess.model;
 
+import citbyui.cit260.ultimatechess.exceptions.GameControlException;
 import citbyui.cit260.ultimatechess.exceptions.MapControlException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import ultimatechess.UltimateChess;
 
 /**
@@ -84,6 +89,28 @@ public class GameControl {
     public static InventoryItem[] getSortedInventoryList() {
         System.out.println("\n*** getSortedInventoryList stub function called ***");
         return null;
+    }
+
+    public static void saveGame(Game currentGame, String filePath) throws GameControlException {
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath)) { 
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(currentGame);
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void loadGame(String filePath) throws GameControlException {
+        Game game = null;
+        
+        try(FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game)input.readObject();
+        } catch(Exception ex) {
+            throw new GameControlException(ex.getMessage());
+        }
     }
     
     public enum Item {

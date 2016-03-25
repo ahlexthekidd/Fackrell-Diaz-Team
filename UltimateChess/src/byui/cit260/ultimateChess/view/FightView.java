@@ -5,6 +5,12 @@
  */
 package byui.cit260.ultimateChess.view;
 
+import byui.cit260.ultimateChess.model.Actor;
+import byui.cit260.ultimateChess.model.TrialsControl;
+import citbyui.cit260.ultimatechess.exceptions.TrialsControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Zero
@@ -30,8 +36,14 @@ public class FightView extends View {
         choice = choice.toUpperCase(); // convert choice to upper case
 
         switch (choice) {
-            case "A": // initiate an attack
+            case "A": {
+            try {
+                // initiate an attack
                 this.attack();
+            } catch (TrialsControlException ex) {
+                Logger.getLogger(FightView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "D": // initiate defend
                 this.defend();
@@ -43,23 +55,24 @@ public class FightView extends View {
                 this.displayHelpMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
 
     }
     
-    private void attack() {
-        System.out.println("*** You have attempted to attack ***");
+    private void attack() throws TrialsControlException {
+        TrialsControl fight = new TrialsControl();
+        fight.fightScene(Actor.Pawn, Actor.Enemy, 0);
     }
     
     private void defend() {
-         System.out.println("*** You have attempted to defend ***");
+         this.console.println("*** You have attempted to defend ***");
     }
 
     private void run() {
-         System.out.println("*** You have attempted to run ***");
+         this.console.println("*** You have attempted to run ***");
     }
 
     private void displayHelpMenu() {

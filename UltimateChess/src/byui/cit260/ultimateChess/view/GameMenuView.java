@@ -5,7 +5,6 @@
  */
 package byui.cit260.ultimateChess.view;
 
-import byui.cit260.ultimateChess.model.Actor;
 import static byui.cit260.ultimateChess.model.Actor.Pawn;
 import byui.cit260.ultimateChess.model.Game;
 import byui.cit260.ultimateChess.model.GameControl;
@@ -15,8 +14,6 @@ import byui.cit260.ultimateChess.model.Map;
 import byui.cit260.ultimateChess.model.MapControl;
 import citbyui.cit260.ultimatechess.exceptions.MapControlException;
 import java.awt.Point;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import ultimatechess.UltimateChess;
 
 /**
@@ -49,8 +46,7 @@ public class GameMenuView extends View {
             case "V": // display map
                 this.displayMap();
                 break;
-            case "F": // create and start a new game
-                this.fight();
+            case "F": this.fight();
                 break;
             case "I": // get and start an existing game
                 this.displayInventory();
@@ -60,7 +56,7 @@ public class GameMenuView extends View {
                     // move to location
                     this.moveLocation();
                 } catch (MapControlException ex) {
-                    System.out.println(ex.getMessage());
+                    this.console.print(ex.getMessage());
                 }
             }
             break;
@@ -71,7 +67,7 @@ public class GameMenuView extends View {
                 this.displayHelpMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
@@ -87,26 +83,25 @@ public class GameMenuView extends View {
         // get the sorted list of inventory items for the current game
         InventoryItem[] inventory = GameControl.getSortedInventoryList();
 
-        System.out.println("\nList of INventory Items");
-        System.out.println("Description" + "\t"
+        this.console.println("\nList of INventory Items");
+        this.console.println("Description" + "\t"
                 + "Required" + "\t"
                 + "In Stock");
 
         // for each inventory item
         for (InventoryItem inventoryItem : inventory) {
             // Display the description and the amount in stock
-            System.out.println(inventoryItem.getInventoryType() + "\t   "
+            this.console.println(inventoryItem.getInventoryType() + "\t   "
                     + inventoryItem.getStock());
         }
     }
 
     private void moveLocation() throws MapControlException {
-        //System.out.println("*** moveLocation function called ***");
         Point coordinates = new Point();
         MapControl move = new MapControl();
         move.moveLocation(Pawn, coordinates);
         coordinates.setLocation(coordinates);
-        System.out.println("Your current location: " + coordinates);
+        this.console.println("Your current location: " + coordinates);
     }
 
     private void CastleView() {
@@ -127,24 +122,24 @@ public class GameMenuView extends View {
         int rowCount = map.getRowCount();
         int columnCount = map.getColumnCount();
 
-        System.out.println("\n\n\t\t-----------------------------------------"
+        this.console.println("\n\n\t\t-----------------------------------------"
                 + "\n\t\t|            The Kingdom                |"
                 + "\n\t\t-----------------------------------------");
-        System.out.print("\n\t| 0  |  | 1  |  | 2  |  | 3  |  | 4  |  | 5  |  | 6  |\n");
+        this.console.print("\n\t| 0  |  | 1  |  | 2  |  | 3  |  | 4  |  | 5  |  | 6  |\n");
 
         for (int row = 0; row < rowCount; row++) {
-            System.out.print("\n\t-----------------------------------------------------\n");
-            System.out.print("| " + row + " |");
+            this.console.print("\n\t-----------------------------------------------------\n");
+            this.console.print("| " + row + " |");
             for (int column = 0; column < columnCount; column++) {
                 Location place = places[row][column];
                 if (place.isVisited()) {
-                    System.out.print(" | " + place.getScene().getType());
+                    this.console.print(" | " + place.getScene().getType());
                 } else {
-                    System.out.print("\t| ??");
+                    this.console.print("\t| ??");
                 }
-                System.out.print(" | ");
+                this.console.print(" | ");
             }
         }
-        System.out.print("\n\t-----------------------------------------------------\n");
+        this.console.print("\n\t-----------------------------------------------------\n");
     }
 }

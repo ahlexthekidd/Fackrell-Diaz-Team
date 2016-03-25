@@ -5,67 +5,74 @@
  */
 package byui.cit260.ultimateChess.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import ultimatechess.UltimateChess;
 
 /**
  *
  * @author Zero
  */
 public abstract class View implements ViewInterface {
-    
+
     protected String displayMessage;
-    
+
+    protected final BufferedReader keyboard = UltimateChess.getInFile();
+    protected final PrintWriter console = UltimateChess.getOutFile();
+
     public View() {
-        
+
     }
 
     public View(String message) {
         this.displayMessage = message;
-    
+
     }
-    
+
     @Override
-     public void display() {
-        
+    public void display() {
+
         boolean done = false;
         do {
             //prompt for and get players name
             String value = this.getInput();
             if (value.toUpperCase().equals("Q")) // user wants to quit
+            {
                 return; // exit the view
-            
+            }
             // do the requested action and display the next view
             done = this.doAction(value);
-            
+
         } while (!done); // exit the view when done == true
     }
 
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         String value = null;
-        
-        // while a valid name has not been retrieved
-        while (!valid) {
-            
-            // prompt for the player's name
-            System.out.println("\n" + this.displayMessage);
-            
-            // get the value entered from the keyboard
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1) { // blank value entered
-                System.out.println("\n*** You must enter a value *** ");
-                continue;
+        try {
+            // while a valid name has not been retrieved
+            while (!valid) {
+
+                // prompt for the player's name
+                this.console.println("\n" + this.displayMessage);
+
+                // get the value entered from the keyboard
+                value = this.keyboard.readLine();
+                value = value.trim();
+
+                if (value.length() < 1) { // blank value entered
+                    this.console.println("\n*** You must enter a value *** ");
+                    continue;
+                }
+
+                break;
             }
-            
-            break;
+        } catch (Exception e) {
+            this.console.println("Error reading input: " + e.getMessage());
         }
-        
         return value; // return the name
     }
-    
-    
+
 }

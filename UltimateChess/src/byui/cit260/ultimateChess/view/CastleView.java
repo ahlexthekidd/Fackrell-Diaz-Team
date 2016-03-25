@@ -45,7 +45,7 @@ package byui.cit260.ultimateChess.view;
                  this.displayHelpMenu();
                  break;
              default:
-                 System.out.println("\n*** Invalid selection *** Try again");
+                 this.console.println("\n*** Invalid selection *** Try again");
                  break;
          }
          return false;
@@ -53,15 +53,15 @@ package byui.cit260.ultimateChess.view;
      }
      
      private void exploreCastle() {
-         System.out.println("*** You are exploring the Castle ***");
+         this.console.println("*** You are exploring the Castle ***");
      }
      
      private void leaveCastle() {
-          System.out.println("*** You left the Castle ***");
+          this.console.println("*** You left the Castle ***");
      }
  
      private void castleRturn() {
-          System.out.println("*** You have returned to the Castle ***");
+          this.console.println("*** You have returned to the Castle ***");
      }
  
      private void displayHelpMenu() {

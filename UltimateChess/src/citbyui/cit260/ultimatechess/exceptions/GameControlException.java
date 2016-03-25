@@ -9,26 +9,26 @@ package citbyui.cit260.ultimatechess.exceptions;
  *
  * @author Zero
  */
-public class MapControlException extends Exception {
-
-    public MapControlException() {
+public class GameControlException extends Exception {
+    
+    public GameControlException() {
         super("\nThis is an exception thrown by"
-                + " the MapControlException Class");
+                + " the GameControlException Class");
     }
 
-    public MapControlException(String message) {
+    public GameControlException(String message) {
         super(message);
     }
 
-    public MapControlException(String message, Throwable cause) {
+    public GameControlException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public MapControlException(Throwable cause) {
+    public GameControlException(Throwable cause) {
         super(cause);
     }
 
-    public MapControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public GameControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
     

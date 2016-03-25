@@ -171,8 +171,8 @@ public class MapControl {
             //return -1;
         }
 
-        moveActorToLocation(actor, coordinates);
         coordinates.setLocation(new Point(row, column));
+        moveActorToLocation(actor, coordinates);
         return 0;
     }
 }

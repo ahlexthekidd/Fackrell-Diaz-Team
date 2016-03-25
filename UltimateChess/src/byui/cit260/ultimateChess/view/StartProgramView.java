@@ -75,7 +75,7 @@ public class StartProgramView {
             value = value.trim(); // trim leading and trailing blanks
             
             if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
+                ErrorView.display(this.getClass().getName(), "\nInvalid value: value cannot be blank");
                 continue;
             }
             
@@ -88,7 +88,7 @@ public class StartProgramView {
     private boolean doAction(String playersName) {
        
         if (playersName.length() < 2) {
-            System.out.println("\nInvalid players name: "
+            ErrorView.display(this.getClass().getName(), "\nInvalid players name: "
                      + "This name must be greater than one character in length");
             return false;
         }
@@ -97,7 +97,7 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playersName);
         
         if (player == null) { // if unsuccessfull
-            System.out.println("\nError creating the player.");
+            ErrorView.display(this.getClass().getName(), "\nError creating the player.");
             return false;
         }
         

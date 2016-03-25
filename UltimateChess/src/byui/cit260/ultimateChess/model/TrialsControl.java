@@ -5,6 +5,8 @@
  */
 package byui.cit260.ultimateChess.model;
 
+import citbyui.cit260.ultimatechess.exceptions.TrialsControlException;
+
 /**
  *
  * @author Zero
@@ -12,7 +14,7 @@ package byui.cit260.ultimateChess.model;
 public class TrialsControl {
 
     // how to handle a fight scene
-    public int fightScene(Actor hero, Actor enemy, int type) {
+    public void fightScene(Actor hero, Actor enemy, int type) throws TrialsControlException {
 
         // initialize variables
         int a = hero.getHealth();
@@ -21,19 +23,19 @@ public class TrialsControl {
         int x = enemy.getLevel();
 
         if (a <= 0 || w <= 0 || b < 0 || x < 0) {
-            return -1;
+            throw new TrialsControlException("The actors cannot"
+                    + " be engaged in a fight because they have"
+                    + " invalid values");
         }
+        
         if (type == 3) {
             if (b >= x) {
                 //int damage = ((b * c)/2 * (y * z)/2);
                 //w -= damage;
-                return 0;
             }
             if (b < x) {
                 a = 0;
-                return -1;
             }
         }
-        return 0;
     }
 }
