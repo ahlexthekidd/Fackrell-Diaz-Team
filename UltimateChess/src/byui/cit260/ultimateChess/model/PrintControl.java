@@ -29,23 +29,24 @@ public class PrintControl {
 
             output.writeObject("\n\n\t\t-----------------------------------------"
                     + "\n\t\t|            The Kingdom                |"
-                    + "\n\t\t-----------------------------------------");
-            output.writeObject("\n\t| 0  |  | 1  |  | 2  |  | 3  |  | 4  |  | 5  |  | 6  |\n");
+                    + "\n\t\t-----------------------------------------"
+                    + "\n\t| 0  |  | 1  |  | 2  |  | 3  |  | 4  |  | 5  |  | 6  |\n");
 
             for (int row = 0; row < rowCount; row++) {
-                output.writeObject("\n\t-----------------------------------------------------\n");
-                output.writeObject("| " + row + " |");
+                output.writeObject("\n        ------------------------------------------------------\n");
+                output.writeObject("\n  | " + row + " |");
                 for (int column = 0; column < columnCount; column++) {
                     Location place = places[row][column];
                     if (place.isVisited()) {
                         output.writeObject(" | " + place.getScene().getType());
                     } else {
-                        output.writeObject("\t| ??");
+                        output.writeObject("| ??");
                     }
                     output.writeObject(" | ");
+                    output.writeObject("\n");
                 }
             }
-            output.writeObject("\n\t-----------------------------------------------------\n");
+            output.writeObject("\n        ------------------------------------------------------\n");
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }

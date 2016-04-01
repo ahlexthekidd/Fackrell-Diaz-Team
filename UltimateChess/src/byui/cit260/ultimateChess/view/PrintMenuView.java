@@ -56,5 +56,6 @@ public class PrintMenuView extends View {
         } catch (Exception ex) {
             ErrorView.display("PrintMenuView", ex.getMessage());
         }
+        this.console.println("\nThe map has been printed successfuly to " + filePath);
     }
 }
