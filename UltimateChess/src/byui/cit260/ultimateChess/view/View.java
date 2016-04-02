@@ -7,7 +7,6 @@ package byui.cit260.ultimateChess.view;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import ultimatechess.UltimateChess;
 
 /**

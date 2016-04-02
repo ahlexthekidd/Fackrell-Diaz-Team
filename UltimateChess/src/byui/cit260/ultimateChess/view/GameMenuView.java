@@ -112,7 +112,6 @@ public class GameMenuView extends View {
         MapControl move = new MapControl();
         move.moveLocation(Pawn, coordinates);
         coordinates.setLocation(coordinates);
-        this.console.println("Your current location: " + coordinates);
     }
 
     private void CastleView() {

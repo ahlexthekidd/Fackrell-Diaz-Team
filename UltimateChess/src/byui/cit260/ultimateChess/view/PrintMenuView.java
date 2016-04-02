@@ -5,9 +5,6 @@
  */
 package byui.cit260.ultimateChess.view;
 
-import byui.cit260.ultimateChess.model.Game;
-import byui.cit260.ultimateChess.model.Location;
-import byui.cit260.ultimateChess.model.Map;
 import byui.cit260.ultimateChess.model.PrintControl;
 import ultimatechess.UltimateChess;
 

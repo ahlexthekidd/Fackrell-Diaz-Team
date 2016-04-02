@@ -6,7 +6,6 @@
 package byui.cit260.ultimateChess.view;
 
 import byui.cit260.ultimateChess.model.GameControl;
-import citbyui.cit260.ultimatechess.exceptions.GameControlException;
 import citbyui.cit260.ultimatechess.exceptions.MapControlException;
 import ultimatechess.UltimateChess;
 

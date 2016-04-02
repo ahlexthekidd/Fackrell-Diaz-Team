@@ -19,8 +19,12 @@ public class TrialsControl {
         // initialize variables
         int a = hero.getHealth();
         int b = hero.getLevel();
+        int c = hero.getAttack();
+        int d = hero.getDefense();
         int w = enemy.getHealth();
         int x = enemy.getLevel();
+        int y = enemy.getAttack();
+        int z = enemy.getDefense();
 
         if (a <= 0 || w <= 0 || b < 0 || x < 0) {
             throw new TrialsControlException("The actors cannot"
@@ -30,8 +34,8 @@ public class TrialsControl {
         
         if (type == 3) {
             if (b >= x) {
-                //int damage = ((b * c)/2 * (y * z)/2);
-                //w -= damage;
+                int damage = ((b * c)/2 * (y * z)/2);
+                w -= damage;
             }
             if (b < x) {
                 a = 0;
