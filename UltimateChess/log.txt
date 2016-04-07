@@ -1,0 +1,2 @@
+byui.cit260.ultimateChess.view.StartProgramView - 
+Invalid players name: This name must be greater than one character in length

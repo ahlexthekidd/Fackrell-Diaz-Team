@@ -14,3 +14,16 @@ public class InventoryControl {
    
     
 }
+/*
+// ArrayList Example
+
+Public ArrayList<item> addInventoryItems(){
+
+ArrayList<item> inventory = new ArrayList<>();
+
+inventory.add(new Item("Potion",5));
+inventory.add(new Item("Gold",5));
+
+return inventory;
+}
+*/

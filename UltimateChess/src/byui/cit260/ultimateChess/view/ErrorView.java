@@ -8,10 +8,6 @@ package byui.cit260.ultimateChess.view;
 import java.io.PrintWriter;
 import ultimatechess.UltimateChess;
 
-/**
- *
- * @author Zero
- */
 public class ErrorView {
 
     private static final PrintWriter errorFile = UltimateChess.getOutFile();
